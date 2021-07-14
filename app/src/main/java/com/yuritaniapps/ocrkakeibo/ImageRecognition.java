@@ -18,7 +18,7 @@ public class ImageRecognition {
     private String TESS_DATA_DIR_NAME = "tessdata";
     private String TRAINED_DATA_NAMES [] = { "eng.traineddata", "jpn.traineddata" };
 
-    public void readImageFromBitmap(Activity parentActivity, Bitmap targetImage) {
+    public String getTextFromBitmap(Activity parentActivity, Bitmap targetImage) {
         // Tess-twoのオブジェクトを取得。
         TessBaseAPI tessBaseAPI = new TessBaseAPI();
         // オブジェクトを初期化
@@ -30,7 +30,7 @@ public class ImageRecognition {
         tessBaseAPI.setImage(targetImage);
         String gainedText = tessBaseAPI.getUTF8Text();
         Log.d("debug", "the gained text is: " + gainedText);
-
+        return gainedText;
     }
 
     public void copyTrainedData(Activity parentActivity) {
